@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbrt5tgeownqa"]
+
+[ext_resource type="Script" uid="uid://384rofbt3lth" path="res://scenes/border_colliders.gd" id="1_dkf0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkf0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3wlbj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4c6m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5qmo"]
+
+[node name="BorderColliders" type="Node2D" node_paths=PackedStringArray("top_collider", "left_collider", "right_collider", "bottom_collider")]
+script = ExtResource("1_dkf0j")
+top_collider = NodePath("Top/CollisionShape2D")
+left_collider = NodePath("Left/CollisionShape2D")
+right_collider = NodePath("Right/CollisionShape2D")
+bottom_collider = NodePath("Bottom/CollisionShape2D")
+
+[node name="Top" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+shape = SubResource("RectangleShape2D_dkf0j")
+disabled = true
+
+[node name="Left" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+shape = SubResource("RectangleShape2D_3wlbj")
+disabled = true
+
+[node name="Right" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+shape = SubResource("RectangleShape2D_o4c6m")
+disabled = true
+
+[node name="Bottom" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+shape = SubResource("RectangleShape2D_v5qmo")
+disabled = true

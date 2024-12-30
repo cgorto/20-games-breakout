@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://e20pwx0m2l4i"]
+
+[ext_resource type="Script" uid="uid://djh0qif8moodt" path="res://scenes/ball.gd" id="1_7s4qf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7s4qf"]
+
+[sub_resource type="Curve" id="Curve_cxlvu"]
+_data = [Vector2(0.344444, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_f7cbr"]
+curve = SubResource("Curve_cxlvu")
+
+[node name="Ball" type="CharacterBody2D"]
+script = ExtResource("1_7s4qf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7s4qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 4.76837e-07)
+scale = Vector2(0.078125, 20)
+texture = SubResource("CurveTexture_f7cbr")

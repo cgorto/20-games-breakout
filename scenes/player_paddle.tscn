@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dysj1iab1yt7l"]
+
+[ext_resource type="Script" uid="uid://c8iey2jk4mktu" path="res://scenes/player_paddle.gd" id="1_yyijc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyijc"]
+size = Vector2(120, 20)
+
+[sub_resource type="Curve" id="Curve_uktar"]
+_data = [Vector2(0.511111, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_kxuup"]
+width = 120
+curve = SubResource("Curve_uktar")
+
+[node name="PlayerPaddle" type="Node2D" node_paths=PackedStringArray("paddle")]
+script = ExtResource("1_yyijc")
+movement_speed = 100.0
+paddle = NodePath("Paddle")
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+shape = SubResource("RectangleShape2D_yyijc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Paddle"]
+position = Vector2(0, -5.72205e-06)
+scale = Vector2(1, 20)
+texture = SubResource("CurveTexture_kxuup")

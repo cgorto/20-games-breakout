@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf62k7va0a403"]
+
+[ext_resource type="PackedScene" uid="uid://e20pwx0m2l4i" path="res://scenes/ball.tscn" id="1_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bbrt5tgeownqa" path="res://scenes/border_colliders.tscn" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dysj1iab1yt7l" path="res://scenes/player_paddle.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://ctlp61bpkhnuk" path="res://scenes/label.gd" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cau7x86eqv66w" path="res://scenes/block_grid.tscn" id="4_iywne"]
+
+[node name="Game" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="Ball" parent="." instance=ExtResource("1_lbhrr")]
+position = Vector2(582, 480)
+
+[node name="BorderColliders" parent="." instance=ExtResource("1_lnu2h")]
+
+[node name="PlayerPaddle" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(583, 611)
+movement_speed = 500.0
+p = 5.0
+i = 2.0
+d = 0.5
+
+[node name="BlockGrid" parent="." instance=ExtResource("4_iywne")]
+vertical_limit = 0.5
+
+[node name="Label" type="Label" parent="."]
+offset_left = 51.0
+offset_top = 583.0
+offset_right = 91.0
+offset_bottom = 606.0
+script = ExtResource("2_yqjtg")
